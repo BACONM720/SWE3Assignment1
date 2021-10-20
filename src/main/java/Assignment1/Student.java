@@ -14,13 +14,13 @@ import org.joda.time.*;
  */
 public class Student {
 
-    private String name;
-    private int age;
-    private String dob;
-    private int id = 0;
-    private String username;
-   private ArrayList<Module> modules;
-   private ArrayList<Course> courses;
+    public String name;
+    public int age;
+  public String dob;
+  public int id = 0;
+    public String username;
+   public ArrayList<Module> modules;
+ public ArrayList<Course> courses;
 
     Student(String name, int age, String dob) {
         this.name = name;
