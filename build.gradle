@@ -9,8 +9,6 @@ mainClassName = 'Assignment1.Main'
 
 repositories {
     mavenCentral()
-     jcenter()
-            maven { url "https://jitpack.io" }
 }
 
 dependencies {
