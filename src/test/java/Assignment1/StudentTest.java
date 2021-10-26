@@ -110,8 +110,9 @@ public class StudentTest {
     @Test
     public void testGetModules() {
         System.out.println("getModules");
-        ArrayList<Module> expResult = new ArrayList<Module>();
+        ArrayList<Module> expResult = new ArrayList<>();
         expResult.add(m);
+        s.addModule(m);
         ArrayList<Module> result = s.getModules();
         assertEquals(expResult, result);
     }
@@ -124,10 +125,9 @@ public class StudentTest {
         System.out.println("getCourses");
         ArrayList<Course> expResult = new ArrayList<>();
         expResult.add(c);
+        s.addCourse(c); 
         ArrayList<Course> result = s.getCourses();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
    

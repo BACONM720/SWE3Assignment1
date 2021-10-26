@@ -17,12 +17,12 @@ public class Student {
     private String name;
     private int age;
     private String dob;
-    private int id = 0;
+    private int id = 210000;
     private String username;
     private ArrayList<Module> modules;
     private ArrayList<Course> courses;
 
-    public Student(String name, int age, String dob) {
+   public Student(String name, int age, String dob) {
         this.name = name;
         this.age = age;
         this.dob = dob;
@@ -66,7 +66,11 @@ public class Student {
     }
 
     public void setAge(int age) {
+        if(age>= 16 && age<= 99){
         this.age = age;
+        }
+        else{System.out.println("invalid age");
+        }
     }
 
     public void setDOB(String dob) {
@@ -87,17 +91,31 @@ public class Student {
     }
 
     public void addCourse(Course c) {
+         if(courses.contains(c)){
+                System.out.println("You are already enrolled to this course!");
+       
+    } 
         courses.add(c);
     }
 
-    public void addModule(Module m) {
-        modules.add(m);
+    public void addModule(Module m){ 
+            if(modules.contains(m)){
+                System.out.println("You are already enrolled to this module!");
+       
+    } 
+            modules.add(m);
     }
     
     public void removeModule(Module m){
+         if(!modules.contains(m)){
+                System.out.println("cant remove " + m.getName());
+    } 
         modules.remove(m);
     }
     public void removeCourse(Course c){
+           if(!courses.contains(c)){
+                System.out.println("cant remove " + c.getName());
+    } 
         courses.remove(c);
     }
 
@@ -118,7 +136,6 @@ public class Student {
           System.out.println("List is Empty!!!");
         }
         else{
-        
         courses.forEach(c -> {
             System.out.println(c);
         });

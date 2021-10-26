@@ -40,6 +40,14 @@ public class Course {
     public DateTime getEndDate() {
         return endDate;
     }
+    
+     public ArrayList<Module> getModules() {
+        return modules;
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -77,18 +85,32 @@ public class Course {
     }
 
     public void addModule(Module module) {
+        if(modules.contains(module)){
+                System.out.println("Module is already a part of this course!");
+       
+    } 
         modules.add(module);
     }
 
     public void addStudent(Student student) {
+        if(students.contains(student)){
+                System.out.println("Student is already enrolled to this course!");
+       
+    } 
         students.add(student);
     }
     
     public void removeModule(Module m){
+        if(!modules.contains(m)){
+                System.out.println("cant remove " + m.getName());
+    } 
         modules.remove(m);
     }
 
  public void removeStudent(Student s){
+     if(!students.contains(s)){
+                System.out.println("cant remove " + s.getName());
+    } 
         students.remove(s);
     }
  

@@ -5,6 +5,7 @@
  */
 package Assignment1;
 
+import java.util.ArrayList;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,12 +19,20 @@ import static org.junit.Assert.*;
  * @author Ryan9
  */
 public class CourseTest {
+    private Student s;
+    private Module m;
+    private Course c;
+    DateTime start = new DateTime(2019, 1, 1, 1, 1);
+    DateTime end = new DateTime(2020, 1, 1, 1, 1);
     
     public CourseTest() {
+        
+    
     }
     
     @BeforeClass
     public static void setUpClass() {
+       
     }
     
     @AfterClass
@@ -31,7 +40,10 @@ public class CourseTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() { 
+        s = new Student("ryan", 21, "12/2/2000");
+        m = new Module("CT213");
+        c = new Course("IT", start, end);
     }
     
     @After
@@ -44,12 +56,11 @@ public class CourseTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Course instance = null;
-        String expResult = "";
+        Course instance = c;
+        String expResult = "IT";
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -58,12 +69,11 @@ public class CourseTest {
     @Test
     public void testGetStartDate() {
         System.out.println("getStartDate");
-        Course instance = null;
-        DateTime expResult = null;
+        Course instance = c;
+        DateTime expResult = start;
         DateTime result = instance.getStartDate();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -72,52 +82,38 @@ public class CourseTest {
     @Test
     public void testGetEndDate() {
         System.out.println("getEndDate");
-        Course instance = null;
-        DateTime expResult = null;
+        Course instance = c;
+        DateTime expResult = end;
         DateTime result = instance.getEndDate();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of getModules method, of class Student.
+     */
+    @Test
+    public void testGetModules() {
+        System.out.println("getModules");
+        ArrayList<Module> expResult = new ArrayList<>();
+        expResult.add(m);
+        c.addModule(m);
+        ArrayList<Module> result = c.getModules();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of setName method, of class Course.
+     * Test of getCourses method, of class Student.
      */
     @Test
-    public void testSetName() {
-        System.out.println("setName");
-        String name = "";
-        Course instance = null;
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetStudents() {
+        System.out.println("getStudents");
+        ArrayList<Student> expResult = new ArrayList<>();
+        expResult.add(s);
+        c.addStudent(s); 
+        ArrayList<Student> result = c.getStudents();
+        assertEquals(expResult, result);
     }
 
-    /**
-     * Test of setStartDate method, of class Course.
-     */
-    @Test
-    public void testSetStartDate() {
-        System.out.println("setStartDate");
-        DateTime startDate = null;
-        Course instance = null;
-        instance.setStartDate(startDate);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setEndDate method, of class Course.
-     */
-    @Test
-    public void testSetEndDate() {
-        System.out.println("setEndDate");
-        DateTime endDate = null;
-        Course instance = null;
-        instance.setEndDate(endDate);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of listStudents method, of class Course.
@@ -125,10 +121,8 @@ public class CourseTest {
     @Test
     public void testListStudents() {
         System.out.println("listStudents");
-        Course instance = null;
+        Course instance = c;
         instance.listStudents();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -137,10 +131,8 @@ public class CourseTest {
     @Test
     public void testListModules() {
         System.out.println("listModules");
-        Course instance = null;
+        Course instance = c;
         instance.listModules();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -149,11 +141,9 @@ public class CourseTest {
     @Test
     public void testAddModule() {
         System.out.println("addModule");
-        Module module = null;
-        Course instance = null;
+        Module module = m;
+        Course instance = c;
         instance.addModule(module);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -162,11 +152,10 @@ public class CourseTest {
     @Test
     public void testAddStudent() {
         System.out.println("addStudent");
-        Student student = null;
-        Course instance = null;
+        Student student = s;
+        Course instance = c;
         instance.addStudent(student);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -175,11 +164,10 @@ public class CourseTest {
     @Test
     public void testRemoveModule() {
         System.out.println("removeModule");
-        Module m = null;
-        Course instance = null;
-        instance.removeModule(m);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Module module = m;
+        Course instance = c;
+        instance.removeModule(module);
+      
     }
 
     /**
@@ -188,11 +176,9 @@ public class CourseTest {
     @Test
     public void testRemoveStudent() {
         System.out.println("removeStudent");
-        Student s = null;
-        Course instance = null;
-        instance.removeStudent(s);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Student student = s;
+        Course instance = c;
+        instance.removeStudent(student);
     }
 
     /**
@@ -201,12 +187,11 @@ public class CourseTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Course instance = null;
-        String expResult = "";
+        Course instance = c;
+        String expResult = "Name: " + c.getName() + " " +"Start Date: " + c.getStartDate() +" " + " End Date: " + c.getEndDate();
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
+    }
+     
 }

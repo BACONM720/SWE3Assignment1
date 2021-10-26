@@ -38,11 +38,32 @@ public class Module {
     }
 
     public void addStudent(Student student) {
+        if(students.contains(student)){
+                System.out.println("Student is already enrolled to this module!");
+       
+    } 
         students.add(student);
     }
 
     public void addCourse(Course course) {
+        if(courses.contains(course)){
+                System.out.println("Module is already a part of this course!");
+    } 
         courses.add(course);
+    }
+    
+    public void removeStudent(Student s){
+        if(!students.contains(s)){
+                System.out.println("cant remove " + s.getName());
+    } 
+        students.remove(s);
+    }
+    
+    public void removeCourse(Course c){
+        if(!courses.contains(c)){
+                System.out.println("cant remove " + c.getName());
+    } 
+        courses.remove(c);
     }
 
     public void setName(String name) {
