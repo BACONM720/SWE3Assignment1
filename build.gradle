@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'application'
+apply plugin: 'war'
 
 
 description = 'Software Engineering 3'
@@ -15,4 +16,8 @@ dependencies {
     testImplementation     'junit:junit:4.13'
     implementation group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-jodatime', version: '5.7.0.RELEASE'
 
+}
+
+war {
+    enabled=true
 }
